@@ -1,0 +1,12 @@
+.card{
+    #card-img{
+        height: 35vh;
+        width: 100%;
+       padding: 5%;          
+    }
+}
+.button{
+    text-align: center;
+    margin: 10%;
+    
+}
