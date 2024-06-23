@@ -1,19 +1,21 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
-  const verifyJWT = req.header("Authorization")?.split(" ")[1];
-  if (!token) return res.status(401).json({ message: "Access denied" });
+const verifyJWT = (req, res, next) => {
+	const authHeader = req.headers.authorization || req.headers.Authorization;
 
-  try {
-    const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-	req.user = verified.UserInfo.username;
-	req.roles = verified.UserInfo.roles;
-    next();
-  } catch (error) {
-    res.status(403).json({ message: "Invalid token" });
-  }
+	if (!authHeader?.startsWith('Bearer ')) {
+		return res.status(401).json({ message: 'need authentication' });
+	}
+
+	const token = authHeader.split(' ')[1];
+
+	jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+		if (err) return res.status(403).json({ message: 'no content access rights' });
+		req.user = decoded.UserInfo.username;
+		req.roles = decoded.UserInfo.roles;
+		next();
+	});
 };
-
 module.exports = verifyJWT;
 
 
