@@ -36,9 +36,11 @@ app.get("/", (req, res) => {
 connectDbFunc()
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log("Server started");
+      console.log(`Server is running on port ${process.env.PORT}`);
     });
   })
   .catch((err) => {
     console.log(err.message, " err in index.js");
   });
+
+

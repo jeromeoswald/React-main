@@ -36,6 +36,7 @@ app.all('*', (req, res) => {
 	}
 });
 
+
 app.use(errorHandler);
 
 mongoose.connection.once('open', () => {
