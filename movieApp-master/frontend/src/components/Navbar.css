@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu .ant-menu-item {
+  margin-right: 20px;
+}
+
+.spacer {
+  flex: 1;
+}
