@@ -2,11 +2,11 @@
 
 :root {
   --light-blue: #e9f1fa;
-  --dark-blue: #00abe4;
-  --darker-blue: #0077ff;
+  --dark-blue: #08da13;
+  --darker-blue: #043a02;
   --white: #fff;
-  --bold-text-color: #1e375a;
-  --light-text-color: rgba(30, 55, 90, 0.7);
+  --bold-text-color: #104634;
+  --light-text-color: rgba(13, 56, 24, 0.7);
   --font-family: "Poppins", sans-serif;
 }
 

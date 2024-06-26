@@ -3,8 +3,8 @@
 .sidebar-section {
   background: linear-gradient(
     0deg,
-    rgba(0, 119, 255, 1) 0%,
-    rgba(64, 164, 255, 1) 100%
+    rgb(4, 248, 134) 0%,
+    rgb(3, 88, 128) 100%
   );
   width: 18vw;
   height: 100vh;
