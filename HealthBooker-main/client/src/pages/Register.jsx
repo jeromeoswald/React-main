@@ -15,6 +15,7 @@ function Register() {
     email: "",
     password: "",
     confpassword: "",
+    isAdmin: "public", // default value for isAdmin
   });
   const navigate = useNavigate();
 
@@ -57,7 +58,7 @@ function Register() {
     e.preventDefault();
     if (loading) return;
 
-    const { firstname, lastname, email, password, confpassword } = formDetails;
+    const { firstname, lastname, email, password, confpassword, isAdmin } = formDetails;
     if (!firstname || !lastname || !email || !password || !confpassword) {
       return toast.error("Input field should not be empty");
     } else if (firstname.length < 3) {
@@ -78,6 +79,7 @@ function Register() {
           email,
           password,
           pic: file,
+          isAdmin: isAdmin === "admin", // Convert to boolean
         }),
         {
           pending: "Registering user...",
@@ -143,12 +145,21 @@ function Register() {
             value={formDetails.confpassword}
             onChange={inputChange}
           />
+          <select
+            name="isAdmin"
+            className="form-input"
+            value={formDetails.isAdmin}
+            onChange={inputChange}
+          >
+            <option value="public">Doctor || User</option>
+            <option value="admin">Admin</option>
+          </select>
           <button
             type="submit"
             className="btn form-btn"
             disabled={loading}
           >
-            sign up
+            Sign Up
           </button>
         </form>
         <p>
